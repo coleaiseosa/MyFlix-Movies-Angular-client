@@ -16,10 +16,10 @@ export class MovieCardComponent {
   movies: any[] = [];
   favoriteMovies: any[] = [];
   constructor(
-    private fetchApiData: FetchApiDataService,
-    private dialog: MatDialog
-   // public dialog: MatDialog,
-   // public snackBar: MatSnackBar
+    public fetchApiData: FetchApiDataService,
+  //  private dialog: MatDialog
+   public dialog: MatDialog,
+   public snackBar: MatSnackBar
     ) { }
 
   // ngOnInitis called when angular is done creating the component
@@ -43,39 +43,39 @@ export class MovieCardComponent {
     })
   }
 
-  addToFavorite(movieId: string): void {
-    this.fetchApiData.addFavoriteMovie(movieId).subscribe((resp: any) => {
-      this.getFavoriteMovies();
-    })
-  }
-
   // addToFavorite(movieId: string): void {
-  //   console.log(movieId);
-  //   this.fetchApiData.addFavoriteMovie(movieId).subscribe((result) => {
-  //     console.log(result);
-  //     this.snackBar.open('Movie has been added to your favorites.', 'OK', {
-  //       duration: 2000,
-  //     });
-  //     this.ngOnInit();
-  //   });
+  //   this.fetchApiData.addFavoriteMovie(movieId).subscribe((resp: any) => {
+  //     this.getFavoriteMovies();
+  //   })
   // }
 
-  removeFromFavorite(movieId: string): void {
-    this.fetchApiData.removeFavoriteMovie(movieId).subscribe((resp: any) => {
-      this.getFavoriteMovies();
-    })
+  addToFavorite(movieId: string): void {
+    console.log(movieId);
+    this.fetchApiData.addFavoriteMovie(movieId).subscribe((result) => {
+      console.log(result);
+      this.snackBar.open('Movie has been added to your favorites.', 'OK', {
+        duration: 2000,
+      });
+      this.ngOnInit();
+    });
   }
 
   // removeFromFavorite(movieId: string): void {
-  //   console.log(movieId);
-  //   this.fetchApiData.removeFavoriteMovie(movieId).subscribe((result) => {
-  //     console.log(result);
-  //     this.snackBar.open('Movie has been removed from your favorites.', 'OK', {
-  //       duration: 2000,
-  //     });
-  //     this.ngOnInit();
-  //   });
+  //   this.fetchApiData.removeFavoriteMovie(movieId).subscribe((resp: any) => {
+  //     this.getFavoriteMovies();
+  //   })
   // }
+
+  removeFromFavorite(movieId: string): void {
+    console.log(movieId);
+    this.fetchApiData.removeFavoriteMovie(movieId).subscribe((result) => {
+      console.log(result);
+      this.snackBar.open('Movie has been removed from your favorites.', 'OK', {
+        duration: 2000,
+      });
+      this.ngOnInit();
+    });
+  }
 
 
   movieIsFavorite(movieId: string): boolean {
