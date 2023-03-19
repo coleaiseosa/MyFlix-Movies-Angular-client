@@ -15,7 +15,7 @@ $hoverLinkColor: rgb(234, 163, 71);
 
   &-card-header {
     font-size: 1.3rem;
-    color: $color;
+    color: #000;
     padding-bottom: 1rem;
     box-sizing: border-box;
     font-weight: 500;
@@ -23,7 +23,7 @@ $hoverLinkColor: rgb(234, 163, 71);
 
   &-update {
     &-header {
-      color: $color;
+      color: #000;
       font-size: 1.2rem;
       font-weight: normal;
       padding-bottom: 0.5rem;
