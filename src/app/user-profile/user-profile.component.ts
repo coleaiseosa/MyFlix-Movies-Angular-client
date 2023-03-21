@@ -28,7 +28,11 @@ export class UserProfileComponent implements OnInit{
     this.getUserInfo();
   }
 
-  // fetch user data from Api
+  /**
+   * Fetch user data from the backend via API
+   * @returns object with user information
+   * @function getUserInfo
+   */
 
   getUserInfo(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
@@ -38,6 +42,11 @@ export class UserProfileComponent implements OnInit{
       this.updatedUser.Birthday = this.user.Birthday;
     });
   }
+
+  /**
+   * Updates user data
+   * @function updateUserInfo
+   */
 
   updateUserInfo(): void {
     this.fetchApiData.editUser(this.updatedUser).subscribe((result) => {
@@ -58,7 +67,10 @@ export class UserProfileComponent implements OnInit{
     });
   }
 
-  // delete user contact
+  /**
+   * Deletes users account for the user that is logged in
+   * @function deleteAccount
+   */
 
   deleteAccount(): void {
     if (confirm("All your data will be lost - this cannot be undone!")) {

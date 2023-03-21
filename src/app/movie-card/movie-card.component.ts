@@ -22,11 +22,19 @@ export class MovieCardComponent {
    public snackBar: MatSnackBar
     ) { }
 
-  // ngOnInitis called when angular is done creating the component
+  /**
+   * ngOnInit is called when angular is done creating the component
+   */
   ngOnInit(): void {
     this.getMovies();
     this.getFavoriteMovies();
   }
+
+  /**
+   * Fetch movies via API and set movies state to returned JSON file
+   * @returns array holding movie objects
+   * @function  getMovies
+   */
 
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
@@ -36,6 +44,12 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Fetch user info via API and set favorites state to returned JSON file
+   * @returns array holding IDs of favorite Movies
+   * @function getFavoriteMovies
+   */
+
   getFavoriteMovies(): void {
     this.fetchApiData.getFavoriteMovies().subscribe((resp: any) => {
       this.favoriteMovies = resp;
@@ -43,11 +57,11 @@ export class MovieCardComponent {
     })
   }
 
-  // addToFavorite(movieId: string): void {
-  //   this.fetchApiData.addFavoriteMovie(movieId).subscribe((resp: any) => {
-  //     this.getFavoriteMovies();
-  //   })
-  // }
+  /**
+   * Adds a movie to a user's favorite
+   * @param {string} movieId 
+   * @function addToFavorite
+   */
 
   addToFavorite(movieId: string): void {
     console.log(movieId);
@@ -60,11 +74,11 @@ export class MovieCardComponent {
     });
   }
 
-  // removeFromFavorite(movieId: string): void {
-  //   this.fetchApiData.removeFavoriteMovie(movieId).subscribe((resp: any) => {
-  //     this.getFavoriteMovies();
-  //   })
-  // }
+  /**
+   * Removes a movie from a user's favorites
+   * @param {string} movieId 
+   * @function removeFavoriteMovie
+   */
 
   removeFromFavorite(movieId: string): void {
     console.log(movieId);
@@ -77,10 +91,21 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Checks if a movie is included in a user's favorite movies
+   * @param {string} movieId 
+   * @returns boolean
+   * @function movieIsFavorite
+   */
 
   movieIsFavorite(movieId: string): boolean {
     return this.favoriteMovies.includes(movieId);
   }
+
+  /**
+   * toggles to add or remove a movie from a users list of favorite
+   * @param {string} movieId 
+   */
 
   toggleFavorite(movieId: string): void {
     if(this.movieIsFavorite(movieId)) {
@@ -90,6 +115,12 @@ export class MovieCardComponent {
     }
   }
 
+  /**
+   * Opens Genre information from genre component
+   * @param movie
+   * @function openGenre 
+   */
+  
   openGenre(movie: any): void {
     const { Name, Description } = movie.Genre;
     this.dialog.open(GenreComponent, {
@@ -99,6 +130,12 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens director information from Director component
+   * @param movie 
+   * @function openDirector
+   */
+
   openDirector(movie: any): void {
     const { Name, Birth, Bio } = movie.Director;
     this.dialog.open(DirectorComponent, {
@@ -107,6 +144,12 @@ export class MovieCardComponent {
       width: '400px',
     })
   }
+
+  /**
+   * Opens movie details from MovieDetailsComponent
+   * @param movie
+   * @function openMovieDetails
+   */
 
   openMovieDetails(movie: any): void {
     const { Name, Description } = movie;

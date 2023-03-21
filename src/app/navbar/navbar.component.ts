@@ -13,14 +13,28 @@ export class NavbarComponent implements OnInit{
     
   }
   
+  /**
+   * navigates to movie page
+   * @function goToMovies
+   */
+
   goToMovies(): void {
     this.router.navigate(["movies"]);
   }
+
+  /**
+   * navigates to user profile
+   * @function goToProfile
+   */
 
   goToProfile(): void {
     this.router.navigate(["profile"]);
   }
 
+  /**
+   * logs out an already logged in user
+   * @function logOut
+   */
   logOut(): void {
     this.router.navigate(["welcome"]);
   }
