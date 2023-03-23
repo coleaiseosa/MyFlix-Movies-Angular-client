@@ -18,12 +18,12 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Technology used includes
 
-Angular
-Angular Material
-HTML
-SCSS
-TypeScript
-Typedoc
+- Angular
+- Angular Material
+- HTML
+- SCSS
+- TypeScript
+- Typedoc
 
 ## Running unit tests
 
@@ -38,3 +38,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ![Home](../MyFlix-Movies-Angular-client/src/assets/My%20flix%20angular.jpg)
+
+<img src="/assets/to/Myflixangular.jpg" title="Home">
