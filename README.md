@@ -39,4 +39,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ![Home][homelink]
 
-[homelink]: C:\Users\okafo\MyFlix-Movies-Angular-client\src\assets\Myflixangular.jpg
+[homelink]: src\assets\Myflixangular.jpg
